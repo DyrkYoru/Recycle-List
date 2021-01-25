@@ -9,4 +9,7 @@ Intent intent = new Intent(this, ONE_ACTIVITY.class).setFlags(Intent.FLAG_ACTIVI
 startActivity(intent);
 
 
-// 
+// Fragment 
+BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
+NavController navController = Navigation.findNavController(this,  R.id.fragment);
+NavigationUI.setupWithNavController(bottomNavigationView, navController);
