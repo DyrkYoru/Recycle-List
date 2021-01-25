@@ -1,0 +1,22 @@
+ImageView imageView;
+Handler handler;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        imageView = findViewById(R.id.imageView);
+        imageView.animate().alpha(4000).setDuration(0);
+
+        handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+               Intent intent = new Intent(MainActivity.this, ONE_ACTIVITY.class);
+               startActivity(intent);
+               finish();
+            }
+        }, 4000);
+    }
