@@ -1,0 +1,12 @@
+// Toast 
+Toast.makeText(getApplicationContext(), "Something", Toast.LENGTH_SHORT).show();
+Toast.makeText(this, "Something", Toast.LENGTH_SHORT).show();
+
+
+// Intent
+Intent intent = new Intent(getApplicationContext() / this, ONE_ACTIVITY.class);
+Intent intent = new Intent(this, ONE_ACTIVITY.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // If you go back and wanna Destroy and go again with OnCreate()
+startActivity(intent);
+
+
+// 
