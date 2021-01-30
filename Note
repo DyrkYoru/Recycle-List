@@ -22,3 +22,13 @@ Intent intent = new Intent(Intent.ACTION_VIEW);
 BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
 NavController navController = Navigation.findNavController(this,  R.id.fragment);
 NavigationUI.setupWithNavController(bottomNavigationView, navController);
+
+
+// Simple ListView
+Listview listview = findViewById(R.id.listView);
+
+String[] types = {'Apple', 'Orange', 'Mango', 'Grapes', 'Lemon', 'Durian'};
+
+ArrayAdapter adapter = new ArrayAdapter<String> (this, android.R.id.simple_list_view_1);
+
+listview.setAdapter(adapter);
