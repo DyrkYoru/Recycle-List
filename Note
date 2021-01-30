@@ -14,8 +14,8 @@ startActivity(intent);
 
 // Implicit Intent --> means you don't know who will be handled your action because it belongs outside of your app
 Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://google.com"));
-        startActivity(intent);
+intent.setData(Uri.parse("https://google.com"));
+startActivity(intent);
 
 
 // Fragment 
