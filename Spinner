@@ -60,9 +60,18 @@ public class SecondActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_activity);
 
-        TextView  textView=(TextView) findViewById(R.id.txt_bundle);
-        Bundle bundle=getIntent().getExtras();
-        String data=bundle.get("data").toString();
+        TextView  textView = (TextView) findViewById(R.id.txt_item);
+        Bundle bundle =g etIntent().getExtras();
+        String data = bundle.get("data").toString();
         textView.setText(data);
+        
+        (OR)
+        
+        TextView textView = (TextView) findViewById(R.id.txt_item);
+        Intent i = getIntent();
+        // getting attached intent data
+        String item = i.getStringExtra("data");
+        // displaying selected product name
+        txtProduct.setText(item);
     }
 }
