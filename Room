@@ -1,0 +1,12 @@
+// We first need to import the following Room dependency in our build.gradle(app):
+implementation 'android.arch.persistence.room:runtime:1.0.0'        // 2.2.4
+annotationProcessor 'android.arch.persistence.room:compiler:1.0.0'
+
+
+// Entity
+@Entity(tablename = 'person')
+public class Person(){
+  @PrimaryKey(autoGenerate = true)
+  private int id;
+  
+}
