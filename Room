@@ -2,11 +2,67 @@
 implementation 'android.arch.persistence.room:runtime:1.0.0'        // 2.2.4
 annotationProcessor 'android.arch.persistence.room:compiler:1.0.0'
 
-
+---------- Person.java ----------
 // Entity
+
+//Embedded Example
+public class Address {
+  public String street;
+  public String city;
+  public String state;
+  @ColumnInfo(name = "post_code")
+  public String postCode;
+}
+
 @Entity(tablename = 'person')
 public class Person(){
-  @PrimaryKey(autoGenerate = true)
+  @PrimaryKey(autoGenerate = true)  // autogenerate = AUTOINCREMENT 
   private int id;
   
+  @ColumnInfo(name = "name")
+  String name;
+  
+  @ColumnInfo(name = "number")
+  String number;
+  
+  //Embedded Example
+  @Embedded public Address address;
+  
+  public Person(int id, String name, String number){
+    this.id = id;
+    this.name = name;
+    this.number = number;
+    
+  @Ignore
+  public Person(String name, String number){
+    this.name = name;
+    this.number = number;
+  }
+  
+  // getter and setter
+  ....code 
 }
+
+
+---------- PersonDao.java ----------
+//DAO
+@Dao
+public interface PersonDAO {
+  @Query("SELECT * FROM person //(ORDER BY ID)")
+  List<Person> getPersonList(); // get the instance from Person class
+  
+  @Insert 
+  void insertData(Person person);
+  
+  @Update 
+  void updateData(Person person);
+  
+  @Delete 
+  void deleteData(Person person);
+}
+
+
+
+---------- AppDatabase.java ----------
+@Database(entities = {Person.class // so on if there are more}, version = 1, exportScheme = false)
+
